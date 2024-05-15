@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Training</title>
+    <style>
+
+
+        button {
+            background-color: #086616; 
+            border: none;
+            color: rgb(216, 46, 46);
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+
+
+        h1 {
+        color: #20a028; 
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        }
+
+
+        p {
+        color: #cc1f1f; 
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+    
+    <script>
+
+function fetchNewjokes() {
+
+        fetch('https://api.chucknorris.io/jokes/random?category=food')
+ 	    .then(response=>response.json())
+        .then(json => document.getElementById("chucks").innerHTML=json.value)
+        .catch(error => console.log('unable to reach URL'+error));
+}
+        fetchNewjokes();
+
+
+    </script>
+    <h1>API Training</h1>
+
+    <label>What's chuck doing today?</label>
+    <p id="chucks"></p>
+
+    <button onclick="fetchNewjokes()">New Joke</button>
+
+    
+</body>
+</html>
